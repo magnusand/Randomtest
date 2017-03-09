@@ -16,7 +16,7 @@
     <div id="container"></div>
         <script type="text/babel">
 
-            var SubmitUser = React.createClass ({
+            var SubmitNum = React.createClass ({
 
                 buttonClicked: function(newUsername) {
                     var database = firebase.database();
@@ -42,6 +42,19 @@
             });
 
 
+            var User = React.createClass({
+                render: function() {
+                    var letterStyle = {
+                        padding: 10,
+                        margin: 10,
+                        backgroundColor: this.props.bgcolor,
+                        color: "#333",
+                        display: "inline-block",
+                        fontFamily: "monospace",
+                        fontSize: 32,
+                        textAlign: "center"
+                    };
+
                     return (
                         <div style={letterStyle}>
                             {this.props.children}
@@ -54,8 +67,14 @@
      
             ReactDOM.render(
                 <div>
-                    <h3>Username:</h3>
-                    <SubmitUser />
+                    <User bgcolor="#58B3FF">Marius</User>
+                    <User bgcolor="#FF605F">Alexander</User>
+                    <User bgcolor="#FFD52E">Magnus</User>
+                    <User bgcolor="#49DD8E">Vebjørn</User>
+                    <User bgcolor="#AE99FF">Drithling</User>
+                    <br/>
+                    <h3>Experiment Key:</h3>
+                    <SubmitNum />
                 </div>,
                 destination
             );
