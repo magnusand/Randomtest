@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>public</title>
+    <title>I public</title>
     <!-- reference to the React library -->
       <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
@@ -13,51 +13,77 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
   </head>
   <body>
-    
     <div id="container"></div>
         <script type="text/babel">
 
-      class RandNumInput extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-              value: ''
-            };
+            var SubmitUser = React.createClass ({
 
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
+                buttonClicked: function(newUsername) {
+                    var database = firebase.database();
+                    var ref = database.ref('user');
 
-        handleChange(event) {
-          this.setState({value: event.target.value});
-    }
+                    var data = {
+                        name: this.refs.usernameInput.value
+                    }
 
-        handleSubmit(event) {
-            alert('A name was submitted: ' + this.state.value);
-            event.preventDefault();
-    }
+                    ref.push(data);
+                },
 
-         render() {
-            return (
-      
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Submit random number:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form> 
-    </script> 
-    );
-  } 
-}
+                render: function() {
+                    return (
+                        <div>
+                            <input 
+                                ref = "usernameInput"
+                                type = "text"/>
+                            <button onClick={this.buttonClicked}>Ready</button>
+                        </div>
+                    );
+                }
+            });
 
-var destination = document.querySelector("#container");
 
-ReactDOM.render(
-  <RandNumInput />,
-  destination
-);
+            var User = React.createClass({
+                render: function() {
+                    var letterStyle = {
+                        padding: 10,
+                        margin: 10,
+                        backgroundColor: this.props.bgcolor,
+                        color: "#333",
+                        display: "inline-block",
+                        fontFamily: "monospace",
+                        fontSize: 32,
+                        textAlign: "center"
+                    };
+
+                    return (
+                        <div style={letterStyle}>
+                            {this.props.children}
+                        </div>
+                    );
+                }
+            });
+     
+            var destination = document.querySelector("#container");
+     
+            ReactDOM.render(
+                <div>
+                    <User bgcolor="#58B3FF">Marius</User>
+                    <User bgcolor="#FF605F">Alexander</User>
+                    <User bgcolor="#FFD52E">Magnus</User>
+                    <User bgcolor="#49DD8E">Vebjørn</User>
+                    <User bgcolor="#AE99FF">Drithling</User>
+                    <br/>
+                    <h3>Username:</h3>
+                    <SubmitUser />
+                    <a href="www.vg.no">Admin</a>
+                </div>,
+                destination
+            );
+            
+        </script>
+
+    
+    <script>
 
 <script>
   // Initialize Firebase
@@ -69,5 +95,7 @@ ReactDOM.render(
     messagingSenderId: "109752125195"
   };
   firebase.initializeApp(config);
-</script>
+    </script> 
+  </body> 
+</html>
 
