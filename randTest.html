@@ -46,7 +46,22 @@
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
-      </form>
+      </form> 
+    </script> 
+
+    
+  <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA6ll2lfKu0gxOcnlfqb54IRNLaRUUil8Q",
+    authDomain: "randtest-e8199.firebaseapp.com",
+    databaseURL: "https://randtest-e8199.firebaseio.com",
+    storageBucket: "randtest-e8199.appspot.com",
+    messagingSenderId: "109752125195"
+  };
+  firebase.initializeApp(config);
+</script>
     );
   }
 } 
