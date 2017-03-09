@@ -42,19 +42,6 @@
             });
 
 
-            var User = React.createClass({
-                render: function() {
-                    var letterStyle = {
-                        padding: 10,
-                        margin: 10,
-                        backgroundColor: this.props.bgcolor,
-                        color: "#333",
-                        display: "inline-block",
-                        fontFamily: "monospace",
-                        fontSize: 32,
-                        textAlign: "center"
-                    };
-
                     return (
                         <div style={letterStyle}>
                             {this.props.children}
@@ -67,12 +54,6 @@
      
             ReactDOM.render(
                 <div>
-                    <User bgcolor="#58B3FF">Marius</User>
-                    <User bgcolor="#FF605F">Alexander</User>
-                    <User bgcolor="#FFD52E">Magnus</User>
-                    <User bgcolor="#49DD8E">Vebjørn</User>
-                    <User bgcolor="#AE99FF">Drithling</User>
-                    <br/>
                     <h3>Username:</h3>
                     <SubmitUser />
                 </div>,
