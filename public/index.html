@@ -52,6 +52,13 @@
   } 
 }
 
+var destination = document.querySelector("#container");
+
+ReactDOM.render(
+  <RandNumInput />,
+  destination
+);
+
 <script>
   // Initialize Firebase
   var config = {
@@ -64,9 +71,3 @@
   firebase.initializeApp(config);
 </script>
 
-<!---var destination = document.querySelector("#container");
--->
-ReactDOM.render(
-  <RandNumInput />,
-  destination
-);
