@@ -35,7 +35,8 @@
         handleSubmit(event) {
             alert('A name was submitted: ' + this.state.value);
             event.preventDefault();
-    }
+    } 
+  }
 
          render() {
             return (
@@ -50,12 +51,14 @@
     </script> 
     );
   }
-} 
+},
 
 var destination = document.querySelector("#container");
 
-ReactDOM.render(
-        <RandNumInput />,
+ReactDOM.render( 
+      <div>
+        <RandNumInput /> 
+      </div>,
           destination
 );
 
