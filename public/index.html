@@ -16,74 +16,95 @@
     <div id="container"></div>
         <script type="text/babel">
 
-            var SubmitNum = React.createClass ({
+            var Login = React.createClass ({
 
-                buttonClicked: function(newUsername) {
-                    var database = firebase.database();
-                    var ref = database.ref('user');
+                getInitialState: function(){
+                return { loggedIn: 'false' };
+        },
 
-                    var data = {
-                        name: this.refs.usernameInput.value
-                    }
+        handleLogIn: function(event){
 
-                    ref.push(data);
-                },
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
-                render: function() {
-                    return (
-                        <div>
-                            <input 
-                                ref = "usernameInput"
-                                type = "text"/>
-                            <button onClick={this.buttonClicked}>Ready</button>
-                        </div>
-                    );
-                }
-            });
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // ERROR HANDLING
+        var errorCode = error.code;
+        var errorMessage = error.message; 
 
+        // [... error handling ...]   
 
-            var User = React.createClass({
-                render: function() {
-                    var letterStyle = {
-                        padding: 10,
-                        margin: 10,
-                        backgroundColor: this.props.bgcolor,
-                        color: "#333",
-                        display: "inline-block",
-                        fontFamily: "monospace",
-                        fontSize: 32,
-                        textAlign: "center"
-                    };
+      });
 
-                    return (
-                        <div style={letterStyle}>
-                            {this.props.children}
-                        </div>
-                    );
-                }
-            });
-     
-            var destination = document.querySelector("#container");
-     
-            ReactDOM.render(
-                <div>
-                    <User bgcolor="#58B3FF">Marius</User>
-                    <User bgcolor="#FF605F">Alexander</User>
-                    <User bgcolor="#FFD52E">Magnus</User>
-                    <User bgcolor="#49DD8E">Vebjørn</User>
-                    <User bgcolor="#AE99FF">Drithling</User>
-                    <br/>
-                    <h3>Experiment Key:</h3>
-                    <SubmitNum />
-                </div>,
-                destination
-            );
-            
-        </script>
+      this.setState({ loggedIn: 'true' });
 
-    
-    <script>
+    },
 
+  authenticateUser: function(x){
+
+    // INITIALIZATION
+    var config = {
+      [ ... config stuff ... ]
+    };
+    firebase.initializeApp(config);
+
+    //CHECKING IF SIGNED IN
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // USER IS SIGNED IN
+        console.log('authenticateUser(): true');
+        this.setState({ loggedIn: 'true' });
+      }
+      else {
+        // USER IS SIGNED OUT
+        console.log('authenticateUser(): false');
+        this.setState({ loggedIn: 'false' });
+      }
+    });
+  },
+
+  whichWindowToShow: function() {
+    if (this.state.loggedIn === 'unknown'){
+      return (
+        <div>
+        <Loading type='bubbles' color='#e3e3e3' />
+        </div>
+      );
+    }
+    else if (this.state.loggedIn === 'true'){
+      return (
+        <div>
+        <Backend />
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="login_wrapper">
+        <div className="login_box">
+        <h1>Member Login</h1>
+          <div className="login_fields">
+            <input type="text" id="email" name="email" placeholder="mail"/>
+            <input type="password" id="password" name="password" placeholder="password"/>
+            <button id="signin" name="signin" onClick={this.handleLogIn}>Login</button>
+          </div>
+        </div>
+        </div>
+      );
+    }
+  },
+
+  render: function() {
+    this.authenticateUser();
+    return (
+      <div>
+        { this.whichWindowToShow() }
+      </div>
+    );
+  }
+}); // END LOGIN
+
+<script>
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyA6ll2lfKu0gxOcnlfqb54IRNLaRUUil8Q",
