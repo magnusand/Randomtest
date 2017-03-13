@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>I public</title>
+    <title>Admin Test</title>
     <!-- reference to the React library -->
       <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
@@ -16,18 +16,18 @@
     <div id="container"></div>
         <script type="text/babel">
 
-            var Login = React.createClass ({
+                var Login = React.createClass ({
 
-                getInitialState: function(){
-                return { loggedIn: 'false' };
-        },
+  getInitialState: function(){
+        return { loggedIn: 'false' };
+    },
 
-        handleLogIn: function(event){
+    handleLogIn: function(event){
 
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
 
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         // ERROR HANDLING
         var errorCode = error.code;
         var errorMessage = error.message; 
@@ -44,8 +44,14 @@
 
     // INITIALIZATION
     var config = {
-      [ ... config stuff ... ]
-    };
+
+    apiKey: "AIzaSyA6ll2lfKu0gxOcnlfqb54IRNLaRUUil8Q",
+    authDomain: "randtest-e8199.firebaseapp.com",
+    databaseURL: "https://randtest-e8199.firebaseio.com",
+    storageBucket: "randtest-e8199.appspot.com",
+    messagingSenderId: "109752125195"
+  };
+};
     firebase.initializeApp(config);
 
     //CHECKING IF SIGNED IN
@@ -103,19 +109,3 @@
     );
   }
 }); // END LOGIN
-
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyA6ll2lfKu0gxOcnlfqb54IRNLaRUUil8Q",
-    authDomain: "randtest-e8199.firebaseapp.com",
-    databaseURL: "https://randtest-e8199.firebaseio.com",
-    storageBucket: "randtest-e8199.appspot.com",
-    messagingSenderId: "109752125195"
-  };
-  firebase.initializeApp(config); 
-  console.log(firebase);
-    </script> 
-  </body> 
-</html>
-
