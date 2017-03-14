@@ -9,7 +9,7 @@
         firebase.initializeApp(config);
 
 
-
+/* Alternativ inloggingen ved hjelp av Google Auth
 var provider = new firebase.auth.GoogleAuthProvider(); 
 
     function googleAuth(){
@@ -30,7 +30,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
 
         });
     }
-
+*/
 
 (function() { 
 
