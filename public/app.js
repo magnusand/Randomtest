@@ -7,7 +7,7 @@ function(){
             messagingSenderId: "109752125195"
         };
         firebase.initializeApp(config);
-
+}
 
 var provider = new firebase.auth.GoogleAuthProvider(); 
 
@@ -29,7 +29,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
 
         });
     }
-}
+
 
 
 
