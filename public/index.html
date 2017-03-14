@@ -8,7 +8,9 @@
         <!-- Babel turns JSX to javascript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
         <!-- link to stylesheet -->
-        <link rek="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!-- firebase -->
         <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
     </head>
@@ -17,10 +19,10 @@
         <div id="container"></div>
             <input id="txtEmail" type="email" placeholder="Email">
             <input id="txtPassword" type="password" placeholder="Password">
-            <button id="btnLogin" class="btn btn-action"> Log in </button>
-
-            <button id="btnSignUp" class="btn btn-secondary"> Sign up</button>
-            <button id="btnLogout" class="btn btn-action hide"> Log out </button> 
+            
+            <button type="button" id="btnLogin" class="btn btn-success"> Sign in </button>
+            <button id="btnSignUp" class="btn btn-info"> Sign up</button>
+            <button id="btnLogout" class="btn btn-danger btn-action hide"> Sign out </button> 
             <!-- <input type="image" src ="https://i.stack.imgur.com/JkSed.png" class="btn btn-primary" onclick="googleAuth();"><i class="fa fa-google-plus"></i></button> -->
         </div>
 
