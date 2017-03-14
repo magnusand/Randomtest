@@ -32,28 +32,8 @@ var provider = new firebase.auth.GoogleAuthProvider();
     }
 
 
+(function() { 
 
-
-
-
-
-
-
-
-
-
-
-/*(function() {
-        const config = {
-            apiKey: "AIzaSyA6ll2lfKu0gxOcnlfqb54IRNLaRUUil8Q",
-            authDomain: "randtest-e8199.firebaseapp.com",
-            databaseURL: "https://randtest-e8199.firebaseio.com",
-            storageBucket: "randtest-e8199.appspot.com",
-            messagingSenderId: "109752125195"
-        };
-        firebase.initializeApp(config);
-
-        // get elements
         const txtEmail = document.getElementById('txtEmail');
         const txtPassword = document.getElementById('txtPassword');
         const btnLogin = document.getElementById('btnLogin');
@@ -98,5 +78,5 @@ var provider = new firebase.auth.GoogleAuthProvider();
         	}
         });
 }()); 
-*/ 
+ 
 
