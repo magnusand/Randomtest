@@ -1,3 +1,3 @@
-# Test av diverse innloggingsmetoder
+# 🔐 Test av diverse innloggingsmetoder 🔓
 - Firebase 
 - Google Auth
