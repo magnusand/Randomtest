@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Admin Test</title>
+        <title>Admin</title> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- reference to the React library -->
-          <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+        <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
         <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
         <!-- Babel turns JSX to javascript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
@@ -16,18 +18,32 @@
     </head>
     
     <body>
-        <div id="container"></div>
-            <input id="txtEmail" type="email" placeholder="Email">
-            <input id="txtPassword" type="password" placeholder="Password">
-            
-            <button type="button" id="btnLogin" class="btn btn-success"> Sign in </button>
-            <!--<button id="btnSignUp" class="btn btn-info"> Sign up</button>-->
-            <button id="btnLogout" class="btn btn-danger btn-action hide"> Sign out </button> 
-            <!-- <input type="image" src ="https://i.stack.imgur.com/JkSed.png" class="btn btn-primary" onclick="googleAuth();"><i class="fa fa-google-plus"></i></button> -->
-        </div>
+        <div id="container"></div> 
 
+            <form class="form-horizontal"> 
+          <div class="form-group"> 
+            <label class="control-label col-sm-2" for="txtEmail">Email:</label>
+            <div class="col-xs-3"> 
+              <input id="txtEmail" type="email" class="form-control" placeholder="Enter Email"> 
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="txtPassword">Password:</label>
+            <div class="col-xs-3"> 
+              <input id="txtPassword" type="password" class="form-control" placeholder="Enter Password">
+            </div>
+          </div>
+         
+          <div class="form-group"> 
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="button" id="btnLogin" class="btn btn-success"> Sign in </button> 
+              <button id="btnLogout" class="btn btn-danger btn-action hide"> Sign out </button>
+            </div>
+          </div>
+        </form> 
+      </div>
 
-        <script src="app.js"></script>
+        <script src="admin.js"></script>
 
     </body>
     </html>
